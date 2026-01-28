@@ -1,7 +1,11 @@
+'use client'
+
+import AgroDashboard from '@/components/Dashboard'
+
 export default function Home() {
 	return (
-		<div className="lato-regular">
-			<h1>Hello World</h1>
-		</div>
+		<main className="min-h-screen bg-gray-100">
+			<AgroDashboard />
+		</main>
 	)
 }

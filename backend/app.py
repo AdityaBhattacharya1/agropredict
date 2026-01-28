@@ -6,8 +6,19 @@ from typing import List, Dict, Tuple
 import pickle
 import json
 import os
+import glob
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI(title="AgroPredict Pro API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins="*",
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class ForecastRequest(BaseModel):
@@ -67,6 +78,32 @@ def generate_smart_advice(df: pd.DataFrame) -> Dict:
             "estimated_peak_price": round(max_price_row["yhat"], 2),
         },
     }
+
+
+@app.get("/varieties/{commodity}")
+async def get_varieties(commodity: str):
+    data_folder = "data"
+    file_pattern = os.path.join(data_folder, "commodity_prices-*.json")
+    files = glob.glob(file_pattern)
+
+    varieties = set()
+    for file_path in files:
+        try:
+            with open(file_path, "r") as f:
+                data = json.load(f)
+                if "records" in data:
+                    for record in data["records"]:
+                        if record.get("commodity", "").lower() == commodity.lower():
+                            varieties.add(record.get("variety", "Other"))
+        except Exception:
+            continue
+
+    if not varieties:
+        raise HTTPException(
+            status_code=404, detail=f"No varieties found for {commodity}"
+        )
+
+    return {"commodity": commodity, "varieties": sorted(list(varieties))}
 
 
 @app.post("/predict")
