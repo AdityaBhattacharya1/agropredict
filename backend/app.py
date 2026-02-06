@@ -8,6 +8,8 @@ import json
 import os
 import glob
 from fastapi.middleware.cors import CORSMiddleware
+from agent import agent, knowledge
+from agno.knowledge.reader.json_reader import JSONReader
 
 
 app = FastAPI(title="AgroPredict Pro API")
@@ -25,6 +27,10 @@ class ForecastRequest(BaseModel):
     commodity: str
     variety: str = "Other"
     days: int = 15
+
+
+class AgentQuery(BaseModel):
+    query: str
 
 
 def load_resources(commodity: str, variety: str) -> Tuple:
@@ -78,6 +84,14 @@ def generate_smart_advice(df: pd.DataFrame) -> Dict:
             "estimated_peak_price": round(max_price_row["yhat"], 2),
         },
     }
+
+
+# @app.on_event("startup")
+# async def load_knowledge():
+#     await knowledge.insert(
+#         path="./data/",
+#         reader=JSONReader(),
+#     )
 
 
 @app.get("/varieties/{commodity}")
@@ -139,3 +153,12 @@ async def get_forecast(request: ForecastRequest):
         "market_intelligence": intelligence,
         "forecast_breakdown": daily_data,
     }
+
+
+@app.post("/agent_query")
+async def agent_query(request: AgentQuery):
+    if not request.query.strip():
+        raise HTTPException(status_code=400, detail="Query text is required.")
+
+    response = await agent.arun(request.query)
+    return {"response": response.content}

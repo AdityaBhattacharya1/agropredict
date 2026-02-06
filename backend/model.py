@@ -4,6 +4,7 @@ import pickle
 import os
 import json
 import glob
+from commodities import commodity_list
 
 
 def train_mandi_model_pro(data_folder, commodity_name, variety="Other"):
@@ -71,4 +72,5 @@ def train_mandi_model_pro(data_folder, commodity_name, variety="Other"):
 
 
 if __name__ == "__main__":
-    train_mandi_model_pro("data", "Potato", "Other")
+    for commodity in commodity_list:
+        train_mandi_model_pro("data", commodity, "Other")
