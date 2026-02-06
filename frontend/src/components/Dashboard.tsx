@@ -21,34 +21,14 @@ import {
 	Leaf,
 } from 'lucide-react'
 import { AgroResponse } from '../../types/agro'
-// import { COMMODITIES } from './commodities'
-
-const COMMODITIES = ['Potato', 'Onion', 'Tomato', 'Wheat', 'Apple']
-
-const API_BASE_URL = 'http://localhost:5000'
+import Chatbot from './Chatbot'
+import { API_BASE_URL } from '@/config/constants'
+import { COMMODITIES } from '@/config/commodities'
 
 export default function AgroDashboard() {
 	const [commodity, setCommodity] = useState(COMMODITIES[0])
-	const [variety, setVariety] = useState('')
-	const [varieties, setVarieties] = useState<string[]>([])
 	const [data, setData] = useState<AgroResponse | null>(null)
 	const [loading, setLoading] = useState(false)
-
-	useEffect(() => {
-		const fetchVarieties = async () => {
-			try {
-				const res = await fetch(
-					`${API_BASE_URL}/varieties/${commodity}`,
-				)
-				const json = await res.json()
-				setVarieties(json.varieties)
-				setVariety(json.varieties[0] || 'Other')
-			} catch (err) {
-				console.error('Failed to fetch varieties')
-			}
-		}
-		fetchVarieties()
-	}, [commodity])
 
 	const handlePredict = async () => {
 		setLoading(true)
@@ -56,7 +36,11 @@ export default function AgroDashboard() {
 			const res = await fetch(`${API_BASE_URL}/predict`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ commodity, variety, days: 15 }),
+				body: JSON.stringify({
+					commodity,
+					variety: 'Others',
+					days: 15,
+				}),
 			})
 			const result = await res.json()
 			setData(result)
@@ -107,22 +91,7 @@ export default function AgroDashboard() {
 								))}
 							</select>
 						</div>
-						<div>
-							<label className="block mb-2 text-sm font-medium text-gray-700">
-								Select Variety
-							</label>
-							<select
-								className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
-								value={variety}
-								onChange={(e) => setVariety(e.target.value)}
-							>
-								{varieties.map((v) => (
-									<option key={v} value={v}>
-										{v}
-									</option>
-								))}
-							</select>
-						</div>
+
 						<button
 							onClick={handlePredict}
 							disabled={loading}
@@ -275,8 +244,11 @@ export default function AgroDashboard() {
 								</ResponsiveContainer>
 							</div>
 						</div>
+
+						{/* Chat assistant card */}
 					</div>
 				)}
+				<Chatbot />
 			</main>
 		</div>
 	)
