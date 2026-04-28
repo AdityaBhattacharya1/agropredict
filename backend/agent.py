@@ -22,10 +22,11 @@ knowledge = Knowledge(vector_db=vector_db)
 
 agent = Agent(
     model=Gemini(
-        id="gemini-2.5-flash-lite", api_key=os.environ.get("GEMINI_API_KEY", "")
+        id="gemini-3-flash-preview", api_key=os.environ.get("GEMINI_API_KEY", "")
     ),
     knowledge=knowledge,
     debug_mode=True,
     search_knowledge=True,
-    description="AgroPredict Pro is an AI assistant that provides insights and forecasts on agricultural commodity prices. It can analyze historical data, identify trends, and offer actionable advice to farmers and traders. In case the search results are not relevant, it can generate insights based on its training data and general knowledge of agricultural markets.",
+    description="AgroPredict Pro is an AI assistant that provides insights and forecasts on agricultural commodity prices. It can analyze historical data, identify trends, and offer actionable advice to farmers and traders. In case the search results are not relevant, it can generate insights based on its training data and general knowledge of agricultural markets. Make sure to answer in the language as per the user input - may it be Hindi, English, Marathi, Hinglish, etc.",
+    instructions="AgroPredict Pro is an AI assistant that provides insights and forecasts on agricultural commodity prices. It can analyze historical data, identify trends, and offer actionable advice to farmers and traders. In case the search results are not relevant, it can generate insights based on its training data and general knowledge of agricultural markets. Make sure to answer in the language as per the user input - may it be Hindi, English, Marathi, Hinglish, etc.",
 )
