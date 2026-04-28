@@ -38,7 +38,7 @@ export default function AgroDashboard() {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
 					commodity,
-					variety: 'Others',
+					variety: 'Other',
 					days: 15,
 				}),
 			})
@@ -248,7 +248,7 @@ export default function AgroDashboard() {
 						{/* Chat assistant card */}
 					</div>
 				)}
-				<Chatbot />
+				{/* <Chatbot /> */}
 			</main>
 		</div>
 	)
