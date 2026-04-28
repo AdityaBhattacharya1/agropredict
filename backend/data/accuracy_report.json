@@ -1,0 +1,146 @@
+{
+  "overall_accuracy_pct": 86.29,
+  "target_met": true,
+  "commodities": {
+    "Bottle gourd": {
+      "accuracy_pct": 66.67,
+      "mape": 13.25
+    },
+    "Snakeguard": {
+      "accuracy_pct": 86.67,
+      "mape": 12.68
+    },
+    "Ridgeguard(Tori)": {
+      "accuracy_pct": 86.67,
+      "mape": 9.58
+    },
+    "Potato": {
+      "accuracy_pct": 86.67,
+      "mape": 10.28
+    },
+    "Cucumbar(Kheera)": {
+      "accuracy_pct": 93.33,
+      "mape": 9.74
+    },
+    "Pumpkin": {
+      "accuracy_pct": 73.33,
+      "mape": 13.27
+    },
+    "Amaranthus": {
+      "accuracy_pct": 100.0,
+      "mape": 10.7
+    },
+    "Cauliflower": {
+      "accuracy_pct": 86.67,
+      "mape": 11.03
+    },
+    "Cowpea(Veg)": {
+      "accuracy_pct": 53.33,
+      "mape": 16.59
+    },
+    "Onion Green": {
+      "accuracy_pct": 86.67,
+      "mape": 11.92
+    },
+    "Capsicum": {
+      "accuracy_pct": 86.67,
+      "mape": 13.09
+    },
+    "Tapioca": {
+      "accuracy_pct": 93.33,
+      "mape": 11.26
+    },
+    "Brinjal": {
+      "accuracy_pct": 93.33,
+      "mape": 13.08
+    },
+    "Green Peas": {
+      "accuracy_pct": 93.33,
+      "mape": 10.69
+    },
+    "Grapes": {
+      "accuracy_pct": 100.0,
+      "mape": 13.05
+    },
+    "Carrot": {
+      "accuracy_pct": 93.33,
+      "mape": 11.48
+    },
+    "Cotton": {
+      "accuracy_pct": 93.33,
+      "mape": 8.59
+    },
+    "Ashgourd": {
+      "accuracy_pct": 86.67,
+      "mape": 10.31
+    },
+    "Banana": {
+      "accuracy_pct": 100.0,
+      "mape": 5.59
+    },
+    "Soanf": {
+      "accuracy_pct": 86.67,
+      "mape": 13.89
+    },
+    "Knool Khol": {
+      "accuracy_pct": 100.0,
+      "mape": 11.36
+    },
+    "Mustard": {
+      "accuracy_pct": 80.0,
+      "mape": 12.16
+    },
+    "Wheat": {
+      "accuracy_pct": 80.0,
+      "mape": 14.0
+    },
+    "Ginger(Green)": {
+      "accuracy_pct": 73.33,
+      "mape": 12.89
+    },
+    "Spinach": {
+      "accuracy_pct": 86.67,
+      "mape": 12.32
+    },
+    "Groundnut": {
+      "accuracy_pct": 80.0,
+      "mape": 10.99
+    },
+    "Cabbage": {
+      "accuracy_pct": 80.0,
+      "mape": 13.31
+    },
+    "Green Chilli": {
+      "accuracy_pct": 100.0,
+      "mape": 11.13
+    },
+    "Onion": {
+      "accuracy_pct": 66.67,
+      "mape": 12.91
+    },
+    "Banana - Green": {
+      "accuracy_pct": 93.33,
+      "mape": 10.68
+    },
+    "Coconut": {
+      "accuracy_pct": 100.0,
+      "mape": 9.73
+    },
+    "Beetroot": {
+      "accuracy_pct": 80.0,
+      "mape": 10.51
+    },
+    "Rice": {
+      "accuracy_pct": 86.67,
+      "mape": 10.8
+    },
+    "Paddy(Common)": {
+      "accuracy_pct": 80.0,
+      "mape": 12.06
+    },
+    "Mint(Pudina)": {
+      "accuracy_pct": 86.67,
+      "mape": 11.6
+    }
+  }
+}
