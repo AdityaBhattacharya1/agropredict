@@ -248,7 +248,7 @@ export default function AgroDashboard() {
 						{/* Chat assistant card */}
 					</div>
 				)}
-				{/* <Chatbot /> */}
+				<Chatbot />
 			</main>
 		</div>
 	)
