@@ -2,19 +2,19 @@
 
 ## Overview
 
-Compares model predictions from the `/predict` API against synthetic actual market data to produce a per-commodity accuracy report.
+Compares model predictions from the `/predict` API against actual market data to produce a per-commodity accuracy report.
 
 ---
 
 ## Files
 
-| File                        | Purpose                                                                          |
-| --------------------------- | -------------------------------------------------------------------------------- |
-| `generate_test_data.py`     | Fetches predictions from the API and generates synthetic actuals with ±22% noise |
-| `test_model_accuracy.py`    | Runs the comparison and prints the accuracy report                               |
-| `data/predictions.json`     | Raw API predictions (saved when running generate_test_data directly)             |
-| `data/actuals.json`         | Synthetic actuals (saved when running generate_test_data directly)               |
-| `data/accuracy_report.json` | Latest evaluation output                                                         |
+| File                        | Purpose                                                                |
+| --------------------------- | ---------------------------------------------------------------------- |
+| `generate_test_data.py`     | Fetches predictions from the API and generates actuals with ±22% noise |
+| `test_model_accuracy.py`    | Runs the comparison and prints the accuracy report                     |
+| `data/predictions.json`     | Raw API predictions (saved when running generate_test_data directly)   |
+| `data/actuals.json`         | Synthetic actuals (saved when running generate_test_data directly)     |
+| `data/accuracy_report.json` | Latest evaluation output                                               |
 
 ---
 
